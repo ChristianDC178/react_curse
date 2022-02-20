@@ -34,9 +34,6 @@ class App extends Component {
     }
   }
 
-  //const[name, setName] = useState('Christian');
-  //const[cards, setCards] = useState();
-
   toggleShowCard = () => this.setState({ showCard: !this.state.showCard });
 
   deleteCardHandler = (cardIndex) => {
@@ -82,10 +79,6 @@ class App extends Component {
     );
 
   }
-
-
-
-
 
 }
 
