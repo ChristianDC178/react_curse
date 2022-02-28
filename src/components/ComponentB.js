@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import React, { useContext } from "react";
 import ComponentC from "./ComponentC";
-import { UserContext, ColorContext } from '../ReactContext'
+import { UserContext, ColorContext } from '../ReactContextApp'
 
 const ComponentB = () => {
     const name = useContext(UserContext)

@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import React from "react";
-import { NameContext } from "../ReactContext";
-import { ColorContext } from "../ReactContext";
+import { NameContext } from "../ReactContextApp";
+import { ColorContext } from "../ReactContextApp";
 
 const ComponentC = () => {
 

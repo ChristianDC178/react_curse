@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/*<App title="App Title" />*/}
     {/*<FetchCardApp title="Fetch Card" />*/}
-    {/*<ReactContextApp title="React Context"></ReactContext>*/}
+    {/*<ReactContextApp title="React Context"></ReactContextApp>*/}
     {<UseReducerApp title="Use Reducer"></UseReducerApp>}
   </React.StrictMode>,
   document.getElementById('root')
