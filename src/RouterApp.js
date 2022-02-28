@@ -4,19 +4,19 @@ import Home from './components/router/Home'
 import About from './components/router/About'
 import Contact from './components/router/Contact'
 import Navbar from './components/router/Navbar'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Nav } from 'reactstrap';
 
 function RouterApp() {
     return (
-        <Router>
-            <div className="App">
-                <Navbar>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/about" component={About} />
-                    <Route path="/contact" component={Contact} />
-                </Navbar>
-            </div>
-        </Router>
+        <div className="App">
+            <Navbar />
+            <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+        </div>
     );
 }
 
