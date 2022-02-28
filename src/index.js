@@ -2,11 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import FetchCardApp from './FetchCardApp'
+import ReactContextApp from './ReactContextApp';
 import reportWebVitals from './reportWebVitals';
+import UseReducerApp from './UseReducerApp'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App title="app title" />
+    {/*<App title="App Title" />*/}
+    {/*<FetchCardApp title="Fetch Card" />*/}
+    {/*<ReactContextApp title="React Context"></ReactContext>*/}
+    {<UseReducerApp title="Use Reducer"></UseReducerApp>}
   </React.StrictMode>,
   document.getElementById('root')
 );

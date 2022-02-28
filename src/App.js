@@ -1,7 +1,8 @@
 import './App.css';
 import Card from './Card'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
+import axios from 'axios'
 
 const Button = styled.button`
   background-color: ${props => props.length > 2 ? '#4CAF50' : props.length < 2 ? 'red' : 'pink'};
@@ -20,22 +21,15 @@ const Button = styled.button`
 function App() {
 
   const [name, setName] = useState('Christian');
-  const [cards, setCards] = useState([
-    {
-      name: "Christian Di Costanzo",
-      title: "Solutions Architect",
-      id: 123
-    },
-    {
-      name: "Denies Ritchie",
-      title: "Computer Scientist",
-      id: 432
-    },
-    {
-      name: "Richard Stallman",
-      title: "Computer Scientist",
-      id: 433
-    }]);
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/users')
+      .then(res => {
+        console.log(res)
+        setCards(res.data)
+      })
+  }, [])
+
+  const [cards, setCards] = useState([]);
 
   const [showCard, setShowCard] = useState(true);
   const toggleShowCard = () => setShowCard(!showCard)
@@ -43,18 +37,10 @@ function App() {
   const deleteCardHandler = (cardIndex) => {
     const cards_copy = [...cards]
     cards_copy.splice(cardIndex, 1)
-    console.log("cards_copy", cards_copy)
-    console.log("cards", cards)
+    //console.log("cards_copy", cards_copy)
+    //console.log("cards", cards)
     setCards(cards_copy)
   }
-
-  /*const buttonStyle = {
-    backgroundColor: null
-  }
-
-  if (cards.length < 3) buttonStyle.backgroundColor = 'lightpink'
-  if (cards.length < 2) buttonStyle.backgroundColor = 'red'
-  */
 
   const classes = ['button']
 
@@ -74,7 +60,7 @@ function App() {
       <Card
         key={card.id}
         name={card.name}
-        title={card.title}
+        phone={card.phone}
         onDelete={() => deleteCardHandler(index)}
         onChangeName={(event) => changeNameHandler(event, card.id)}>
       </Card >
