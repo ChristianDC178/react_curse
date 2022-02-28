@@ -1,13 +1,14 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import Coutner from './components/Counter'
+import Counter from './components/Counter';
 
-
-function UseReducer() {
+function UseReducerApp() {
     return (
-        <div className="Use Reducer">
-            Use Reducer
+        <div className="App">
+            <Counter />
         </div>
     );
 }
 
-export default UseReducer;
+export default UseReducerApp;
