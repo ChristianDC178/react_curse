@@ -7,6 +7,7 @@ import Navbar from './components/router/Navbar'
 import Post from './components/Post';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Nav } from 'reactstrap';
+import PageNotFound from './components/PageNotFound';
 
 function RouterApp() {
     return (
@@ -17,6 +18,7 @@ function RouterApp() {
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/posts/:post_id" element={<Post />} />
+                <Route path="*" element={<PageNotFound />} />
             </Routes>
         </div>
     );
