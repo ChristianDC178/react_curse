@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import ComponentA from './components/ComponentA'
+import ComponentA from '../components/ComponentA'
 
 export const NameContext = React.createContext()
 export const UserContext = React.createContext()
