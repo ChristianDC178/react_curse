@@ -1,61 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import { createStore } from 'redux';
-import { BrowserRouter } from "react-router-dom";
-
 //Apps
 //import App from './App';
 //import FetchCardApp from './FetchCardApp'
 //import ReactContextApp from './ReactContextApp';
 //import UseReducerApp from './UseReducerApp'
-import RouterApp from './apps/RouterApp'
+//import RouterApp from './apps/RouterApp'
+import ReduxApp from './apps/ReduxApp';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { BrowserRouter } from "react-router-dom";
+import allReducers from './reducers'
+import { createStore } from 'redux';
+import { Provider } from 'react-redux'
 
-//actions
-const increment = (value) => {
-  return { type: 'INCREMENT', payload: value }
-}
-
-const decrement = (value) => {
-  return { type: 'DECREMENT', payload: value }
-}
-//reducers
-const counterReducer = (state = 0, action) => {
-
-  if (!action.type) return state
-
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + action.payload
-    case 'DECREMENT':
-      return state - action.payload
-    default:
-      return state
-  }
-}
-
-//store
-let store = createStore(counterReducer)
-//display
-store.subscribe(() => {
-  console.log(store.getState())
-})
-
-//dispatch the action
-store.dispatch(increment(5))
-store.dispatch(decrement(4))
-
+const store = createStore(allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
-  <React.StrictMode>
-    {/*<App title="App Title" />*/}
-    {/*<FetchCardApp title="Fetch Card" />*/}
-    {/*<ReactContextApp title="React Context"></ReactContextApp>*/}
-    {/*{<UseReducerApp title="Use Reducer"></UseReducerApp>}/}*/}
+  <Provider store={store}>
+    <React.StrictMode>
 
-    <BrowserRouter>
-      <RouterApp title="Use Reducer"></RouterApp>
-    </BrowserRouter>
-  </React.StrictMode>,
+      {/*<App title="App Title" />*/}
+      {/*<FetchCardApp title="Fetch Card" />*/}
+      {/*<ReactContextApp title="React Context"></ReactContextApp>*/}
+      {/*{<UseReducerApp title="Use Reducer"></UseReducerApp>}/}*/}
+      {/*<RouterApp title="Use Reducer"></RouterApp>*/}
+
+      <BrowserRouter>
+        <ReduxApp title="Redux App"></ReduxApp>
+      </BrowserRouter>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
